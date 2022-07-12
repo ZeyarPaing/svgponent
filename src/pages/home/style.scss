@@ -1,7 +1,23 @@
+@import "src/style/variables/variables";
+
 .home {
+  max-width: 1300px;
+  margin: 3rem auto;
   text-align: center;
 
-  .logo {
-    color: green;
+  h1 {
+    margin-bottom: 16px;
+    font-size: 2.5em;
+    color: $primary;
+
+  }
+
+  p {
+    margin-bottom: 24px;
+  }
+
+
+  .viewerContainer {
+
   }
 }
