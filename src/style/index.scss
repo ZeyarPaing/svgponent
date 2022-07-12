@@ -1,0 +1,21 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+  background-color: rgb(18, 18, 18);
+}
+
+*, *::after, *::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Archivo', sans-serif;
+}
+
+*::selection {
+  background-color: rgb(250, 250, 107);
+  color: rgb(18, 18, 18);
+}
+
