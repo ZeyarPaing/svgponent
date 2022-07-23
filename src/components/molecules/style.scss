@@ -1,10 +1,34 @@
+@import "src/style/variables/variables";
+
 .file {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 14px;
+  gap: 10px;
+  border-radius: 6px;
+  padding: 5px;
+  cursor: default;
+
+  &:hover {
+    background-color: rgba($primary, 0.1);
+  }
+
+  &.selected {
+    background-color: rgba($primary, 0.3);;
+  }
 
   span {
     color: #fff;
+
+  }
+
+  .name {
+    display: block;
+    max-width: 20rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: fade;
   }
 
   & > span:first-child {
@@ -13,10 +37,13 @@
     align-items: center;
   }
 
+  & > span:last-child {
+    text-overflow: fade;
+  }
+
   .icon {
     background-color: #989898;
     padding: 6px;
-    font-size: 20px;
     border-radius: 5px;
     display: inline-grid;
     place-items: center;
@@ -25,6 +52,13 @@
       width: 1em;
       height: 1em;
     }
+  }
+
+  .close {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
 }

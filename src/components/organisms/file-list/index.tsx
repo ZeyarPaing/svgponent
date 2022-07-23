@@ -1,26 +1,15 @@
 import { FunctionalComponent, h } from "preact";
 import style from "./style.scss";
 import FileItem from "../../molecules/file-item";
-import { selector, useRecoilState, useRecoilValue } from "recoil";
-import { filesState } from "../../../pages/home";
+import { useRecoilState } from "recoil";
+import { filesState } from "../../../states";
 
 interface FileListProps {
   files: File[];
 }
 
-const fileList = selector({
-  key: "fileList", // unique ID (with respect to other atoms/selectors)
-  get: ({ get }) => {
-    const files = get(filesState);
-    return files;
-  },
-  set: ({ set }, newValue) => {
-    set(filesState, newValue);
-  },
-});
-
 const FileList: FunctionalComponent = () => {
-  const [files, setFiles] = useRecoilState(fileList);
+  const [files, setFiles] = useRecoilState(filesState);
 
   function removeFile(name: string) {
     const idx = files.findIndex((f) => f.name == name);

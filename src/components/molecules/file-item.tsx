@@ -1,6 +1,8 @@
 import { FunctionalComponent, h } from "preact";
 import { useEffect, useRef } from "preact/compat";
 import styles from "./style.scss";
+import { useRecoilState } from "recoil";
+import { selectedFileState } from "../../states";
 
 interface FileItemProps {
   file: File;
@@ -8,6 +10,7 @@ interface FileItemProps {
 }
 
 const FileItem: FunctionalComponent<FileItemProps> = ({ file, onRemove }) => {
+  const [selectedFile, setSelectedFile] = useRecoilState(selectedFileState);
   const iconRef = useRef<HTMLSpanElement>();
   useEffect(() => {
     file.text().then((str) => {
@@ -15,14 +18,29 @@ const FileItem: FunctionalComponent<FileItemProps> = ({ file, onRemove }) => {
       iconRef.current.innerHTML = str;
     });
   }, []);
+  console.log("selectedFile", selectedFile);
   return (
-    <li className={styles.file}>
+    <li
+      className={[
+        styles.file,
+        selectedFile?.name === file.name ? styles.selected : "",
+      ].join(" ")}
+      onClick={() => setSelectedFile(file)}
+    >
       <span>
+        {/* @ts-ignore */}
         <span ref={iconRef} className={styles.icon} />
-        <span>{file.name}</span>
+        <span className={styles.name}>{file.name}</span>
       </span>
-      <span onClick={() => onRemove(file.name)}>
-        <svg width="21" height="21" role="img" aria-hidden="true">
+
+      <span className={styles.close} onClick={() => onRemove(file.name)}>
+        <svg
+          width="1em"
+          height="1em"
+          viewBox="0 0 21 21"
+          role="img"
+          aria-hidden="true"
+        >
           <path fill="none" d="M0 0h21v21H0z"></path>
           <path
             fill="currentColor"

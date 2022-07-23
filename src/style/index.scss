@@ -7,13 +7,13 @@ html, body {
   -moz-osx-font-smoothing: grayscale;
   color: #e8e8e8;
   background-color: $dark;
+  font-family: 'Archivo', sans-serif;
 }
 
 *, *::after, *::before {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Archivo', sans-serif;
 }
 
 *::selection {
@@ -25,3 +25,17 @@ ul, ol {
   list-style-type: none;
 }
 
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: desaturate(darken($primary, 60%), 40%);
+  outline: 1px solid desaturate(darken($primary, 50%), 20%);
+  border-radius: 20px;
+}
