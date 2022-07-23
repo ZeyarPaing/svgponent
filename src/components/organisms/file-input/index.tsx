@@ -1,11 +1,16 @@
 import { FunctionalComponent, h } from "preact";
 import style from "./style.scss";
 
-const FileInput: FunctionalComponent = () => {
+interface FileInputProps {
+  addFiles: (file: File[]) => void;
+}
+
+const FileInput: FunctionalComponent<FileInputProps> = ({ addFiles }) => {
   async function handleFileInput(e: Event) {
-    let files: FileList = e.target?.files;
-    let str = await files[0].text();
-    console.log("first file text : ", str);
+    // @ts-ignore
+    let files: File[] = e.target?.files;
+    addFiles(files);
+    console.log("files : ", files);
   }
 
   return (

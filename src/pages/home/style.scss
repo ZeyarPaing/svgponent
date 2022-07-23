@@ -1,7 +1,8 @@
 @import "src/style/variables/variables";
 
 .home {
-  max-width: 1300px;
+  max-width: 1340px;
+  padding: 0 20px;
   margin: 3rem auto;
   text-align: center;
 
@@ -15,7 +16,6 @@
   p {
     margin-bottom: 24px;
   }
-
 
   .viewerContainer {
 

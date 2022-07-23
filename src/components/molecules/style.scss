@@ -1,0 +1,30 @@
+.file {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  span {
+    color: #fff;
+  }
+
+  & > span:first-child {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .icon {
+    background-color: #989898;
+    padding: 6px;
+    font-size: 20px;
+    border-radius: 5px;
+    display: inline-grid;
+    place-items: center;
+
+    svg {
+      width: 1em;
+      height: 1em;
+    }
+  }
+
+}
